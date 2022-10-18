@@ -1,16 +1,20 @@
+
 <table>
   <tr>
     <td>ID</td>
     <td>Nome</td>
     <td>Telefone</td>
   </tr>
-  <tr *ngFor="let contato of contatos">
+  <tr *ngFor="let contato of contatos"
+  [class.selected]="contato === selectedLista"
+  (click)="onSelect(contato)"
+  class="contato">
     <td>{{contato.id}}</td>
     <td>{{contato.nome}}</td>
     <td>{{contato.telefone}}</td>
   </tr>
 </table>
-<div>
-  <label for="nome">Nome: </label>
-  <input id="nome" [(ngModel)]="contato.nome" type="text">
-</div>
+
+<app-detalhe-contato [lista]="selectedLista"></app-detalhe-contato>
+
+

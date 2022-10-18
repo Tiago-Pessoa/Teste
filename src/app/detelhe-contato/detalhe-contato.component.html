@@ -1,0 +1,19 @@
+<div *ngIf="lista">
+  <h2>Detalhe Contato</h2>
+<table>
+  <tr>
+    <td>ID</td>
+    <td>Nome</td>
+    <td>Telefone</td>
+  </tr>
+  <tr>
+    <td>{{lista.id}}</td>
+    <td>{{lista.nome}}</td>
+    <td>{{lista.telefone}}</td>
+  </tr>
+</table>
+<div>
+  <label for="nome">Nome: </label>
+  <input id="nome" [(ngModel)]="lista.nome" type="text">
+</div>
+</div>

@@ -26,4 +26,29 @@ export const LISTA: Lista[] = [
     nome:'Marcia',
     telefone: '33130433',
   },
+  {
+    id: 6,
+    nome:'Clara',
+    telefone: '31258746',
+  },
+  {
+    id: 7,
+    nome:'Milena',
+    telefone: '31323355',
+  },
+  {
+    id: 8,
+    nome:'Mathias',
+    telefone: '39324781',
+  },
+  {
+    id: 9,
+    nome:'Ana',
+    telefone: '32589632',
+  },
+  {
+    id: 10,
+    nome:'Pedro',
+    telefone: '32365847',
+  },
 ];

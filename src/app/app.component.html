@@ -1,2 +1,19 @@
-<h1>{{title}}</h1>
-<app-contato></app-contato>
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+
+  <span fxFlex ></span>
+  <button
+    mat-icon-button
+    matTooltip="Contatos"
+    aria-label="Lista de Contatos"
+    routerLink="/contatos"
+  >
+    <mat-icon>sports_martial_arts</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<div class="content">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>

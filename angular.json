@@ -73,7 +73,8 @@
               "browserTarget": "Contato:build:production"
             },
             "development": {
-              "browserTarget": "Contato:build:development"
+              "browserTarget": "Contato:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

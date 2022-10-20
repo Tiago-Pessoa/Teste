@@ -1,4 +1,4 @@
-import { Lista } from "./lista.model";
+import { Lista } from "../models/lista.model";
 
 export const LISTA: Lista[] = [
   {

@@ -1,23 +1,15 @@
-.selected{
-  color: azure;
-  background: black;
-}
 
-.contato{
+.mat-row:hover {
   cursor: pointer;
-
-
+  background: #f0f0f0;
+  scale: 1.005;
 }
 
 table, th, td {
   border: 1px solid black;
-
-
 }
 
 th, td {
-
   width: 30%;
   padding: 1em;
-
 }

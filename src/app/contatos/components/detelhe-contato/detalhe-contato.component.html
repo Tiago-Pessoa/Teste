@@ -1,0 +1,22 @@
+<div *ngIf="contato">
+  <mat-card>
+    <mat-card-content  fxLayout="column">
+      <mat-form-field >
+        <mat-label>ID</mat-label>
+        <input matInput disabled [value]="contato.id">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Contato</mat-label>
+        <input id="nome"  matInput [(ngModel)]="contato.nome" type="text" placeholder="Nome">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Telefone</mat-label>
+        <input id="telefone"  matInput [(ngModel)]="contato.telefone" type="text" placeholder="Telefone">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">Voltar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

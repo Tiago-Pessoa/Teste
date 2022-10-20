@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
-import { ContatoService } from '../contato.service';
-import { Lista } from '../lista.model';
-import { MessageService } from '../message.service';
+import { ContatoService } from '../../../core/services/contato.service';
+import { Lista } from '../../../core/models/lista.model';
+
 
 
 @Component({
@@ -11,12 +11,12 @@ import { MessageService } from '../message.service';
 })
 export class ContatoComponent implements OnInit {
 
-
+displayedColumns: string[] = ['id', 'nome', 'telefone']
 contatos: Lista[]= [];
-selectedLista?: Lista;
+
 
 constructor(private contatoService: ContatoService,
-  private messageService: MessageService
+
   ){}
 
 ngOnInit(): void {
@@ -27,8 +27,4 @@ getContatos(): void {
   this.contatoService.getContatos().subscribe(contatos => this.contatos = contatos);
 }
 
-onSelect(contato:Lista): void {
-  this.selectedLista = contato;
-  this.messageService.add(`ContatoComponent: Selecionou Contato ID: ${contato.id}`)
-}
 }

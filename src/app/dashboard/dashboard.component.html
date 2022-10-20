@@ -1,0 +1,15 @@
+<h2>DashBoard</h2>
+
+<div
+  fxLayout="row"
+  fxLayoutGap="12"
+  fxLayout.xs="column"
+  fxLayoutAlign="space-between"
+>
+  <mat-card
+    class="pointer"
+    *ngFor="let contato of contatos"
+    [routerLink]="['/contatos', contato.id]">
+    <mat-card-title>{{contato.nome}}</mat-card-title>
+  </mat-card>
+</div>

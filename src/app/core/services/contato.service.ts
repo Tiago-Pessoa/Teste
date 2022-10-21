@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Lista } from '../models/lista.model';
 import { MessageService } from '../services/message.service';
 import { LISTA } from '../services/mock-contatos';
@@ -10,7 +11,7 @@ import { LISTA } from '../services/mock-contatos';
 })
 export class ContatoService {
 
-  private contatosUrl = 'api/contatos';
+  private contatosUrl = `${environment.baseUrl}/contatos`;
 
 
 

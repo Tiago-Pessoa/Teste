@@ -1,3 +1,14 @@
+<h1>Contatos</h1>
+
+<button
+  class="add-button"
+  color="accent"
+  mat-fab
+  routerLink="new"
+>
+  <mat-icon>add</mat-icon>
+</button>
+
 <mat-table [dataSource]="contatos"  class="mat-elevation-z8">
   <!-- User id Definition -->
   <ng-container matColumnDef="id">
@@ -15,6 +26,16 @@
   <ng-container matColumnDef="telefone">
     <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.telefone}} </mat-cell>
+  </ng-container>
+
+  <!-- actions Definition -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Deletar </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-icon-button matTooltip="Deletar" (click)="delete(row); $event.stopPropagation()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
   </ng-container>
 
 

@@ -13,11 +13,11 @@ contatos: Lista[] = [];
   constructor(private contatoService: ContatoService) { }
 
   ngOnInit(): void {
-    this.getContatos();
+    this.getAll();
   }
 
-  getContatos(): void {
-    this.contatoService.getContatos().subscribe((contatos) =>
+  getAll(): void {
+    this.contatoService.getAll().subscribe((contatos) =>
       (this.contatos = contatos.slice(1, 5)));
   }
 

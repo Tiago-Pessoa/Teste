@@ -1,22 +1,45 @@
-<div *ngIf="contato">
-  <mat-card>
-    <mat-card-content  fxLayout="column">
-      <mat-form-field >
-        <mat-label>ID</mat-label>
-        <input matInput disabled [value]="contato.id">
-      </mat-form-field>
-      <mat-form-field >
-        <mat-label>Contato</mat-label>
-        <input id="nome"  matInput [(ngModel)]="contato.nome" type="text" placeholder="Nome">
-      </mat-form-field>
-      <mat-form-field >
-        <mat-label>Telefone</mat-label>
-        <input id="telefone"  matInput [(ngModel)]="contato.telefone" type="text" placeholder="Telefone">
-      </mat-form-field>
-    </mat-card-content>
+ <h1>{{ isEditing ? "Alterar " : "Novo " }} Contato</h1>
 
-    <mat-card-actions>
-      <button mat-raised-button (click)="goBack()">Voltar</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+
+ <form [formGroup]="form" novalidate>
+   <mat-card>
+     <mat-card-content fxLayout="column">
+
+       <mat-form-field *ngIf="isEditing">
+         <mat-label>ID</mat-label>
+         <input matInput formControlName="id">
+       </mat-form-field>
+
+       <mat-form-field>
+         <mat-label>Contato</mat-label>
+         <input id="nome" matInput formControlName="nome" type="text" placeholder="Nome">
+         <mat-error *ngIf="form.controls['nome'].hasError('required')">
+           O Nome é Obrigatório!
+         </mat-error>
+         <mat-error *ngIf="form.controls['nome'].hasError('minlength')">
+           O Nome Precisa ter mais de 3 Caracteres!
+         </mat-error>
+       </mat-form-field>
+
+       <mat-form-field>
+         <mat-label>Telefone</mat-label>
+         <input id="telefone" matInput formControlName="telefone" type="text" placeholder="Telefone">
+         <mat-error *ngIf="form.controls['telefone'].hasError('required')">
+          O Telefone é Obrigatório!
+        </mat-error>
+       </mat-form-field>
+     </mat-card-content>
+
+     <mat-card-actions>
+       <button color="primary" mat-raised-button *ngIf="!isEditing" (click)="create()">
+         Salvar
+       </button>
+
+       <button color="primary" mat-raised-button *ngIf="isEditing" (click)="update()">
+         Alterar
+       </button>
+
+       <button color="accent" mat-raised-button (click)="goBack()">Voltar</button>
+     </mat-card-actions>
+   </mat-card>
+ </form>

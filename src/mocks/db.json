@@ -2,53 +2,68 @@
   "contatos": [
     {
       "id": 1,
-      "nome":"Tiago",
+      "nome": "Tiago",
       "telefone": "33131212"
     },
     {
       "id": 2,
-      "nome":"Vania",
-      "telefone": "32322587"
+      "nome": "Vania",
+      "telefone": "(15) 3333-1221"
     },
     {
       "id": 3,
-      "nome":"Walter",
-      "telefone": "34691202"
+      "nome": "Walter",
+      "telefone": "3639-3232"
     },
     {
       "id": 4,
-      "nome":"Bill",
-      "telefone": "33136978"
+      "nome": "Bill",
+      "telefone": "(15) 98545-1221"
     },
     {
       "id": 5,
-      "nome":"Marcia",
+      "nome": "Marcia",
       "telefone": "33130433"
     },
     {
       "id": 6,
-      "nome":"Clara",
+      "nome": "Clara",
       "telefone": "31258746"
     },
     {
       "id": 7,
-      "nome":"Milena",
+      "nome": "Milena",
       "telefone": "31323355"
     },
     {
       "id": 8,
-      "nome":"Mathias",
+      "nome": "Mathias",
       "telefone": "39324781"
     },
     {
       "id": 9,
-      "nome":"Ana",
+      "nome": "Ana",
       "telefone": "32589632"
     },
     {
       "id": 10,
-      "nome":"Pedro",
+      "nome": "Pedro",
       "telefone": "32365847"
+    },
+    {
+      "id": 11,
+      "nome": "Léonidas",
+      "telefone": "(15) 3333-1221"
+    },
+    {
+      "nome": "Natan Souza",
+      "telefone": "(15) 3333-1221",
+      "id": 12
+    },
+    {
+      "id": 13,
+      "nome": "Higor",
+      "telefone": "(15) 3232-3232"
     }
   ]
 }

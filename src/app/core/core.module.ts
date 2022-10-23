@@ -6,17 +6,25 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 const COMPONENTS = [
   ToolbarComponent,
   MessagesComponent,
-  PageNotFoundComponent
+  ConfirmationDialogComponent,
+  PageNotFoundComponent,
+  LoadingComponent
 ];
 
 const MODULES = [
   MaterialModule,
   FlexLayoutModule,
+
   RouterModule
 ];
 
@@ -24,6 +32,18 @@ const MODULES = [
   declarations: [COMPONENTS],
   imports: [CommonModule, MODULES],
   exports: [COMPONENTS, MODULES],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ]
 
 
 })

@@ -20,23 +20,57 @@ export class ContatoService {
     private http: HttpClient,
     private messageService: MessageService){}
 
-  getContatos(): Observable <Lista[]> {
+  getAll(): Observable <Lista[]> {
     return this.http
     .get<Lista[]> (this.contatosUrl)
-    .pipe(tap((contatos) => this.log(`Obteve ${contatos.length}  Contatos`)));
-
-
+    // .pipe(tap((contatos) => this.log(`Obteve ${contatos.length}  Contatos`)));
   };
 
-  getContato(id: number): Observable<Lista> {
+  getOne(id: number): Observable<Lista> {
     return this.http
-    .get<Lista>(`${this.contatosUrl}/${id}`)
+    .get<Lista>(this.getUrl(id))
     .pipe(tap((contato) => this.log(`Obteve contato ID: ${id} - Nome:${contato.nome}`)));
-
-
   };
+
+  search(term: string): Observable<Lista[]>{
+    if(!term.trim()){
+      return of([]);
+    }
+    return this.http
+    .get<Lista[]>(`${this.contatosUrl}?nome=${term}`)
+    .pipe(
+      tap((contatos) => contatos.length
+      ? this.log(`Encontrou ${contatos.length} Contato(s)  buscando: ${term}`)
+      : this.log(`Não existe Contato(s) Buscando${term}`)
+      )
+    );
+  }
+
+
+  create(contato: Lista): Observable<Lista>{
+    return this.http.post<Lista>(this.contatosUrl, contato)
+    .pipe(tap((contato) => this.log(`Criou Novo ${this.descAttributes(contato)}`)));
+  }
+
+  update(contato: Lista): Observable<Lista>{
+    return this.http.put<Lista>(this.getUrl(contato.id), contato)
+    .pipe(tap((contato) => this.log(`Alterou ${this.descAttributes(contato)}`)));
+  }
+
+  delete(contato: Lista): Observable<any>{
+    return this.http.delete<any>(this.getUrl(contato.id))
+    .pipe(tap(() => this.log(`Apagou ${this.descAttributes(contato)}`)));
+  }
+
+  private descAttributes(contato: Lista): string {
+    return `Contato ID: ${contato.id} - Nome:${contato.nome}`
+  }
 
   private log(message: string): void {
-    this.messageService.add(`HeroService: ${message}`)
+    this.messageService.add(`ContatoService: ${message}`)
+  }
+
+  private getUrl(id: number): string {
+    return `${this.contatosUrl}/${id}`
   }
 }

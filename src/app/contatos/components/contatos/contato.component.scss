@@ -5,11 +5,26 @@
   scale: 1.005;
 }
 
-table, th, td {
-  border: 1px solid black;
+.add-button {
+  position: absolute;
+  right: 2em;
+  top: 6em;
 }
 
-th, td {
-  width: 30%;
-  padding: 1em;
+.mat-column-id {
+  max-width: 60px;
+}
+.mat-column-actions {
+  border-left: 1px solid currentColor;
+  max-width: 60px;
+  padding-left: 16px;
+}
+.mat-column-telefone {
+  border-left: 1px solid currentColor;
+  max-width: 160px;
+  padding-left: 16px;
+}
+.mat-column-nome {
+  border-left: 1px solid currentColor;
+  padding-left: 16px;
 }

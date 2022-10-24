@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'Lista Telefônica';
   menuItems: MenuItem[] =[
   {
-    icon:'dashboard',
+    icon:'tag_faces',
     routerLink: '/dashboard',
-    toolTipText: 'Dashboard',
+    toolTipText: 'Preferidos',
   },
   {
     icon:'account_box',

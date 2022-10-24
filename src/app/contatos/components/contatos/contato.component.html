@@ -9,6 +9,13 @@
   <mat-icon>add</mat-icon>
 </button>
 
+<app-contato-search
+  [label]="'Desejo Apagar...'"
+  (selected)="onSelected($event)"
+>
+
+</app-contato-search>
+
 <mat-table [dataSource]="contatos"  class="mat-elevation-z8">
   <!-- User id Definition -->
   <ng-container matColumnDef="id">

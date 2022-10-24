@@ -40,8 +40,8 @@ export class ContatoService {
     .get<Lista[]>(`${this.contatosUrl}?nome=${term}`)
     .pipe(
       tap((contatos) => contatos.length
-      ? this.log(`Encontrou ${contatos.length} Contato(s)  buscando: ${term}`)
-      : this.log(`Não existe Contato(s) Buscando${term}`)
+      ? this.log(`Encontrou ${contatos.length} Contato(s)  Procurando por: ${term}`)
+      : this.log(`Não existe Contato(s) Procurando por: ${term}`)
       )
     );
   }

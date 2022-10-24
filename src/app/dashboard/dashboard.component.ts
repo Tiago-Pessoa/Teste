@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContatoService } from '../core/services/contato.service';
 import { Lista } from '../core/models/lista.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { Lista } from '../core/models/lista.model';
 export class DashboardComponent implements OnInit {
 contatos: Lista[] = [];
 
-  constructor(private contatoService: ContatoService) { }
+  constructor(private contatoService: ContatoService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -18,7 +19,12 @@ contatos: Lista[] = [];
 
   getAll(): void {
     this.contatoService.getAll().subscribe((contatos) =>
-      (this.contatos = contatos.slice(1, 5)));
+      (this.contatos = contatos.splice(0, 8))
+    );
+  }
+
+  onSelected(contato: Lista): void {
+    this.router.navigate(['/contatos', contato.id]);
   }
 
 }

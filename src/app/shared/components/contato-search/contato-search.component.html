@@ -1,0 +1,31 @@
+<mat-form-field appearance="fill" class="input-width">
+  <mat-label>{{ label }}</mat-label>
+
+  <input
+    [matAutocomplete]="auto"
+    matInput
+    placeholder="Nome Contato"
+    #searchBox
+    type="text"
+    (input)="search(searchBox.value)"
+  >
+
+  <button
+    mat-icon-button
+    matSuffix
+    *ngIf="searchBox.value"
+    (click)="searchBox.value = ''"
+  >
+    <mat-icon> remove_circle_outline </mat-icon>
+  </button>
+
+  <mat-autocomplete
+  #auto="matAutocomplete"
+  (optionSelected)="onSelected($event); searchBox.value=''">
+
+  <mat-option *ngFor='let contato of contatos$ | async' [value]='contato'>
+    {{ contato.nome }}
+  </mat-option>
+</mat-autocomplete>
+
+</mat-form-field>

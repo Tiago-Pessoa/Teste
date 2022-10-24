@@ -1,15 +1,21 @@
 <h2>Preferidos</h2>
+<div fxLayout="column" fxLayoutGap="12">
+  <div
 
-<div
-  fxLayout="row"
-  fxLayoutGap="12"
-  fxLayout.xs="column"
-  fxLayoutAlign="space-between"
->
-  <mat-card
-    class="pointer"
-    *ngFor="let contato of contatos"
-    [routerLink]="['/contatos', contato.id]">
-    <mat-card-title>{{contato.nome}}</mat-card-title>
-  </mat-card>
+    fxLayout="row wrap"
+    fxFlex="2 1 calc(10px+200px)"
+    fxLayout.xs="column"
+    fxFlex.xs="initial"
+    fxLayoutAlign="space-evenly center"
+  >
+    <mat-card
+      class="pointer"
+      *ngFor="let contato of contatos"
+      [routerLink]="['/contatos', contato.id]"
+    >
+      <mat-card-title>{{contato.nome}}</mat-card-title>
+    </mat-card>
+  </div>
+
+  <app-contato-search [label]="'Buscar Contato'" (selected)="onSelected($event)"></app-contato-search>
 </div>

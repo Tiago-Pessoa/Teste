@@ -48,4 +48,8 @@ export class ContatoComponent implements OnInit {
       }
     });
   }
+
+  onSelected(contato: Lista): void {
+    this.delete(contato);
+  }
 }

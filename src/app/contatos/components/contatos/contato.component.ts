@@ -14,7 +14,7 @@ import { ConfirmationDialogComponent } from 'src/app/core/components/confirmatio
 })
 export class ContatoComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'telefone', 'actions']
+  displayedColumns: string[] = ['id', 'nome', 'actions']
   contatos: Lista[]= [];
 
 

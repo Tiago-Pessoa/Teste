@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nome": "Tiago",
-      "telefone": "33131212"
+      "telefone": "(15)98171-8479"
     },
     {
       "id": 2,
@@ -51,14 +51,9 @@
       "telefone": "32365847"
     },
     {
-      "nome": "Natan Souza",
-      "telefone": "(15) 3232-3232",
-      "id": 12
-    },
-    {
-      "nome": "Higor",
-      "telefone": "(15) 3333-1221",
-      "id": 13
+      "nome": "Natan",
+      "telefone": "(15) 98545-1221",
+      "id": 11
     }
   ]
 }
